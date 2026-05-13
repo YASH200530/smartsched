@@ -101,10 +101,6 @@ export default function StudentPortal({ user, onLogout }) {
   const handleDownload = async () => {
     setDownloading(true);
     try {
-      // In personalized mode, we might want to download only the filtered ones.
-      // But the backend API currently expects a batch. 
-      // For now, we'll download the batch one. 
-      // FUTURE: Add a personalized download API.
       await downloadBatchTimetable(selectedVersion, batch);
       showToast(`📥 Downloading Batch ${batch} timetable…`);
     } catch (err) {

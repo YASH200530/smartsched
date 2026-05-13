@@ -1,5 +1,5 @@
 // All API calls to the backend
-const BASE = "http://localhost:5000/api/timetable";
+const BASE = "https://smartsched-1.onrender.com/api/timetable";
 
 // Helper: trigger a file download from a Blob
 export function downloadBlob(blob, filename) {
