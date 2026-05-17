@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Spinner from "../components/Spinner";
+import { API_BASE } from "../utils/api";
 
 const ROLES = [
   { id:"admin",   icon:"🛡️", label:"Admin",   desc:"Upload timetables & manage clashes" },
@@ -24,7 +25,7 @@ export default function LoginPage({ onLogin }) {
     try {
       if (role === "admin") {
         // ── Real MongoDB login ──────────────────────────
-        const res  = await fetch("http://localhost:5000/api/auth/login", {
+        const res  = await fetch(`${API_BASE}/auth/login`, {
           method:  "POST",
           headers: { "Content-Type": "application/json" },
           body:    JSON.stringify({ employeeId: user.trim(), password: pass }),

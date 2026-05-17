@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ALL_BATCHES, getSubjectName } from "../utils/constants";
-import { getPublishedStatus, getStudentTimetable, downloadBatchTimetable, getVersions } from "../utils/api";
+import { getPublishedStatus, getStudentTimetable, downloadBatchTimetable, getVersions, API_BASE } from "../utils/api";
 import TimetableGrid from "../components/TimetableGrid";
 import Chip from "../components/Chip";
 
@@ -57,7 +57,7 @@ export default function StudentPortal({ user, onLogout }) {
   useEffect(() => {
     if (!selectedVersion) return;
     
-    fetch(`http://localhost:5000/api/timetable/${selectedVersion}/entries`)
+    fetch(`${API_BASE}/timetable/${selectedVersion}/entries`)
       .then(res => res.json())
       .then(data => {
         const entries = data.entries || [];
